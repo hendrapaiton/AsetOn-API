@@ -116,7 +116,7 @@ curl -X DELETE http://localhost:8080/barang/1
 spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
 spring.jpa.hibernate.ddl-auto=create-drop
 spring.datasource.platform=postgres
-spring.datasource.url=jdbc:postgresql://localhost:5432/invetasi
+spring.datasource.url=jdbc:postgresql://localhost:5432/inventaris
 spring.datasource.username=username
 spring.datasource.password=password
 ```
