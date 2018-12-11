@@ -110,16 +110,11 @@ curl -X DELETE http://localhost:8080/barang/1
 
 ## Koneksi Basisdata
 
->Konfigurasi koneksi basisdata di application.properties (/src/main/resources) dan sesuaikan dengan basisdata anda.
+>Konfigurasi basisdata pada environment sistem dengan url dari server lokal postgresql.
 ```
-# PostgreSQL Configuration
-spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
-spring.jpa.hibernate.ddl-auto=create-drop
-spring.datasource.platform=postgres
-spring.datasource.url=jdbc:postgresql://localhost:5432/inventaris
-spring.datasource.username=username
-spring.datasource.password=password
+DATABASE_URL => postgres://<username>:<password>@localhost:5432/inventaris
 ```
+>Jika menggunakan heroku maka secara otomatis akan dialokasikan oleh heroku.
 
 ## Donasi
 >Jika anda merasa proyek ini membantu anda, jangan sungkan untuk mendukungnya dengan memberikan sedikit donasi.
