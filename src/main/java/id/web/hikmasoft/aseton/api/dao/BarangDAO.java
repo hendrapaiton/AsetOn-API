@@ -8,6 +8,10 @@ import java.util.List;
 
 @Repository
 public interface BarangDAO extends CrudRepository<Barang, Long> {
+
     @Override
     List<Barang> findAll();
+
+    List<Barang> findByKodeBarangOrNamaBarang(String kode_barang, String nama_barang);
+
 }
