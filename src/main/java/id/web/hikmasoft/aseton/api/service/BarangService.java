@@ -28,7 +28,7 @@ public class BarangService {
         if(barang.getKodeBarang() == null || barang.getNamaBarang() == null) {
             throw new BarangNullException("Barang tidak boleh kosong...");
         }
-        if(!barangDAO.findByKodeBarang(barang.getKodeBarang()).isEmpty())
+        if(!barangDAO.findByKodeBarangOrNamaBarang(barang.getKodeBarang(), barang.getNamaBarang()).isEmpty())
             throw new BarangExistException("Barang sudah tersedia...");
         return barangDAO.save(barang);
     }
@@ -48,6 +48,9 @@ public class BarangService {
         Optional<Barang> optionalBarang = barangDAO.findById(idBarang);
         if (!optionalBarang.isPresent())
             throw new BarangNotFoundException("Barang tidak ditemukan...");
+        if(barang.getKodeBarang() == null || barang.getNamaBarang() == null) {
+            throw new BarangNullException("Barang tidak boleh kosong...");
+        }
         barang.setIdBarang(idBarang);
         return barangDAO.save(barang);
     }
