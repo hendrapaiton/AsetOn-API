@@ -3,6 +3,7 @@ package id.web.hikmasoft.aseton.api.service;
 import id.web.hikmasoft.aseton.api.dao.BarangDAO;
 import id.web.hikmasoft.aseton.api.exception.BarangExistException;
 import id.web.hikmasoft.aseton.api.exception.BarangNotFoundException;
+import id.web.hikmasoft.aseton.api.exception.BarangNullException;
 import id.web.hikmasoft.aseton.api.model.Barang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,10 @@ public class BarangService {
     }
 
     public Barang tambahBarang(Barang barang) {
-        if(!barangDAO.findByKodeBarangOrNamaBarang(barang.getKodeBarang(), barang.getNamaBarang()).isEmpty())
+        if(barang.getKodeBarang() == null || barang.getNamaBarang() == null) {
+            throw new BarangNullException("Barang tidak boleh kosong...");
+        }
+        if(!barangDAO.findByKodeBarang(barang.getKodeBarang()).isEmpty())
             throw new BarangExistException("Barang sudah tersedia...");
         return barangDAO.save(barang);
     }

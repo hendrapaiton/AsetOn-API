@@ -12,6 +12,6 @@ public interface BarangDAO extends CrudRepository<Barang, Long> {
     @Override
     List<Barang> findAll();
 
-    List<Barang> findByKodeBarangOrNamaBarang(String kodeBarang, String namaBarang);
+    List<Barang> findByKodeBarang(String kodeBarang);
 
 }
