@@ -10,32 +10,31 @@ public class Barang {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_barang;
-    private String kode_barang;
-    private String nama_barang;
+    private Long idBarang;
+    private String kodeBarang;
+    private String namaBarang;
 
-    public Long getId_barang() {
-        return id_barang;
+    public Long getIdBarang() {
+        return idBarang;
     }
 
-    public void setId_barang(Long id_barang) {
-        this.id_barang = id_barang;
+    public void setIdBarang(Long idBarang) {
+        this.idBarang = idBarang;
     }
 
-    public String getKode_barang() {
-        return kode_barang;
+    public String getKodeBarang() {
+        return kodeBarang;
     }
 
-    public void setKode_barang(String kode_barang) {
-        this.kode_barang = kode_barang;
+    public void setKodeBarang(String kodeBarang) {
+        this.kodeBarang = kodeBarang;
     }
 
-    public String getNama_barang() {
-        return nama_barang;
+    public String getNamaBarang() {
+        return namaBarang;
     }
 
-    public void setNama_barang(String nama_barang) {
-        this.nama_barang = nama_barang;
+    public void setNamaBarang(String namaBarang) {
+        this.namaBarang = namaBarang;
     }
-
 }

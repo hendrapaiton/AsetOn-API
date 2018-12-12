@@ -15,9 +15,9 @@ public class BarangResource {
     @Autowired
     private BarangService barangService;
 
-    @GetMapping(value = "/{id_barang}")
-    public Barang cekBarang(@PathVariable("id_barang") Long id_barang) {
-        return barangService.cekBarang(id_barang);
+    @GetMapping(value = "/{idBarang}")
+    public Barang cekBarang(@PathVariable("idBarang") Long idBarang) {
+        return barangService.cekBarang(idBarang);
     }
 
     @PostMapping
@@ -30,13 +30,13 @@ public class BarangResource {
         return barangService.ambilBarang();
     }
 
-    @DeleteMapping(value = "/{id_barang}")
-    public void hapusBarang(@PathVariable("id_barang") Long id_barang) {
-        barangService.hapusBarang(id_barang);
+    @DeleteMapping(value = "/{idBarang}")
+    public void hapusBarang(@PathVariable("idBarang") Long idBarang) {
+        barangService.hapusBarang(idBarang);
     }
 
-    @PutMapping(value = "/{id_barang}")
-    public Barang ubahBarang(@PathVariable("id_barang") Long id_barang, @RequestBody Barang barang) {
-        return barangService.ubahBarang(id_barang, barang);
+    @PutMapping(value = "/{idBarang}")
+    public Barang ubahBarang(@PathVariable("idBarang") Long idBarang, @RequestBody Barang barang) {
+        return barangService.ubahBarang(idBarang, barang);
     }
 }

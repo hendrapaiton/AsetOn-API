@@ -16,15 +16,15 @@ public class BarangService {
     @Autowired
     private BarangDAO barangDAO;
 
-    public Barang cekBarang(Long id_barang) {
-        Optional<Barang> optionalBarang = barangDAO.findById(id_barang);
+    public Barang cekBarang(Long idBarang) {
+        Optional<Barang> optionalBarang = barangDAO.findById(idBarang);
         if (!optionalBarang.isPresent())
             throw new BarangNotFoundException("Barang tidak ditemukan...");
         return optionalBarang.get();
     }
 
     public Barang tambahBarang(Barang barang) {
-        if(!barangDAO.findByKodeBarangOrNamaBarang(barang.getKode_barang(), barang.getNama_barang()).isEmpty())
+        if(!barangDAO.findByKodeBarangOrNamaBarang(barang.getKodeBarang(), barang.getNamaBarang()).isEmpty())
             throw new BarangExistException("Barang sudah tersedia...");
         return barangDAO.save(barang);
     }
@@ -33,18 +33,18 @@ public class BarangService {
         return barangDAO.findAll();
     }
 
-    public void hapusBarang(Long id_barang) {
-        Optional<Barang> optionalBarang = barangDAO.findById(id_barang);
+    public void hapusBarang(Long idBarang) {
+        Optional<Barang> optionalBarang = barangDAO.findById(idBarang);
         if (!optionalBarang.isPresent())
             throw new BarangNotFoundException("Barang tidak ditemukan...");
-        barangDAO.deleteById(id_barang);
+        barangDAO.deleteById(idBarang);
     }
 
-    public Barang ubahBarang(Long id_barang, Barang barang) {
-        Optional<Barang> optionalBarang = barangDAO.findById(id_barang);
+    public Barang ubahBarang(Long idBarang, Barang barang) {
+        Optional<Barang> optionalBarang = barangDAO.findById(idBarang);
         if (!optionalBarang.isPresent())
             throw new BarangNotFoundException("Barang tidak ditemukan...");
-        barang.setId_barang(id_barang);
+        barang.setIdBarang(idBarang);
         return barangDAO.save(barang);
     }
 
